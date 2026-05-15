@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ROXY JUNE | SONIC ARCHITECTURE</title>
+<meta name="description" content="Thailand's No.1 Female DJ. Pioneer Lady DJ Champion 2010. Available worldwide for clubs, festivals, private events and brand activations." />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-error-container": "#ffdad6",
+          "secondary-fixed-dim": "#ddb7ff",
+          "tertiary": "#40f1ff",
+          "secondary-fixed": "#f0dbff",
+          "on-tertiary-container": "#00575d",
+          "inverse-primary": "#5d5e5f",
+          "on-tertiary-fixed": "#002022",
+          "surface": "#131313",
+          "on-secondary-container": "#d6a9ff",
+          "surface-container-low": "#1b1b1b",
+          "on-secondary": "#490080",
+          "surface-container-lowest": "#0e0e0e",
+          "surface-container": "#1f1f1f",
+          "on-secondary-fixed-variant": "#6900b3",
+          "on-tertiary": "#00363a",
+          "outline": "#8e9192",
+          "error-container": "#93000a",
+          "error": "#ffb4ab",
+          "tertiary-fixed-dim": "#00dbe9",
+          "secondary": "#ddb7ff",
+          "on-primary-container": "#4d4e4f",
+          "primary": "#dcdcdc",
+          "on-tertiary-fixed-variant": "#004f54",
+          "on-surface-variant": "#c4c7c7",
+          "surface-bright": "#393939",
+          "tertiary-fixed": "#7df4ff",
+          "on-primary": "#2f3131",
+          "surface-container-high": "#2a2a2a",
+          "inverse-on-surface": "#303030",
+          "background": "#131313",
+          "on-primary-fixed-variant": "#464747",
+          "surface-tint": "#c6c6c6",
+          "on-surface": "#e2e2e2",
+          "on-primary-fixed": "#1a1c1c",
+          "surface-dim": "#131313",
+          "surface-container-highest": "#353535",
+          "primary-container": "#c0c0c0",
+          "primary-fixed": "#e3e2e2",
+          "outline-variant": "#444748",
+          "on-secondary-fixed": "#2c0051",
+          "tertiary-container": "#00d4e1",
+          "surface-variant": "#353535",
+          "on-background": "#e2e2e2",
+          "secondary-container": "#6f00be",
+          "primary-fixed-dim": "#c6c6c6",
+          "on-error": "#690005",
+          "inverse-surface": "#e2e2e2"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "container-max": "1440px",
+          "margin-mobile": "20px",
+          "gutter": "24px",
+          "margin-desktop": "64px"
+        },
+        "fontFamily": {
+          "headline-md": ["Bodoni Moda"],
+          "label-caps": ["Geist"],
+          "display-lg-mobile": ["Bodoni Moda"],
+          "body-lg": ["Geist"],
+          "display-lg": ["Bodoni Moda"]
+        },
+        "fontSize": {
+          "headline-md": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+          "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600"}],
+          "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}],
+          "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #131313;
+    color: #e2e2e2;
+    overflow-x: hidden;
+  }
+  .chrome-text {
+    background: linear-gradient(180deg, #dcdcdc 0%, #8e9192 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .chrome-border {
+    border: 1px solid transparent;
+    background: linear-gradient(#131313, #131313) padding-box,
+                linear-gradient(to bottom, #dcdcdc, transparent) border-box;
+  }
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(32px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .neon-glow:hover {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* stagger siblings */
+  .reveal:nth-child(2) { transition-delay: 0.08s; }
+  .reveal:nth-child(3) { transition-delay: 0.16s; }
+  .reveal:nth-child(4) { transition-delay: 0.24s; }
+  .reveal:nth-child(5) { transition-delay: 0.32s; }
+  .reveal:nth-child(6) { transition-delay: 0.40s; }
+  /* form inputs */
+  input::placeholder, textarea::placeholder { color: rgba(196,199,199,0.35); }
+  input:focus, textarea:focus { outline: none; }
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 1px; }
+  ::-webkit-scrollbar-thumb { background: #ddb7ff; }
+</style>
+</head>
+<body class="font-body-lg text-on-surface">
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobile-menu" class="hidden fixed inset-0 z-[200] bg-[#0e0e0e]/98 backdrop-blur-xl flex-col items-center justify-center gap-8">
+  <button id="mobile-close" class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <a class="font-headline-md text-4xl italic text-on-surface/60 hover:text-primary transition-colors mobile-link" href="#story">About</a>
+  <a class="font-headline-md text-4xl italic text-on-surface/60 hover:text-primary transition-colors mobile-link" href="#music">Music</a>
+  <a class="font-headline-md text-4xl italic text-on-surface/60 hover:text-primary transition-colors mobile-link" href="#tour">Events</a>
+  <a class="font-headline-md text-4xl italic text-on-surface/60 hover:text-primary transition-colors mobile-link" href="#booking">Contact</a>
+  <a class="mt-4 font-label-caps text-label-caps px-8 py-3 bg-primary text-on-primary mobile-link" href="#booking">BOOK NOW</a>
+</div>
+
+<!-- TOP NAV -->
+<header class="fixed top-0 w-full z-50 bg-surface/30 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+  <nav class="flex justify-between items-center px-margin-desktop py-4 w-full">
+    <a href="#" class="font-display-lg text-headline-md text-primary tracking-widest uppercase">ROXY JUNE</a>
+    <div class="hidden md:flex gap-10 items-center">
+      <a class="font-label-caps text-label-caps text-secondary font-bold" href="#">Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface/70 hover:text-primary transition-colors" href="#story">About</a>
+      <a class="font-label-caps text-label-caps text-on-surface/70 hover:text-primary transition-colors" href="#music">Music</a>
+      <a class="font-label-caps text-label-caps text-on-surface/70 hover:text-primary transition-colors" href="#tour">Events</a>
+      <a href="#booking" class="font-label-caps text-label-caps px-6 py-2 bg-primary text-on-primary hover:bg-secondary transition-all scale-95 active:scale-90">BOOK NOW</a>
+    </div>
+    <button id="hamburger" class="md:hidden text-primary" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <!-- Swap src to roxy-portrait.jpg when photo is ready -->
+    <img alt="Roxy June" class="w-full h-full object-cover object-top opacity-60 grayscale scale-105" src="roxy-portrait.jpg" onerror="this.style.display='none'" />
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(19,19,19,0.2) 0%, rgba(19,19,19,0.1) 40%, #131313 100%), radial-gradient(ellipse 80% 60% at 60% 40%, #1a0533 0%, #131313 70%)"></div>
+  </div>
+  <div class="relative z-10 text-center px-margin-mobile">
+    <h2 class="font-label-caps text-label-caps text-secondary mb-6 tracking-[0.5em] opacity-80">EST. 2009</h2>
+    <h1 class="font-display-lg text-display-lg md:text-[120px] chrome-text leading-none mb-8">SONIC<br/>ARCHITECTURE</h1>
+    <div class="flex justify-center gap-4">
+      <div class="h-[1px] w-24 bg-primary self-center"></div>
+      <span class="font-label-caps text-label-caps text-on-surface-variant italic">THE FUTURE OF SOUND</span>
+      <div class="h-[1px] w-24 bg-primary self-center"></div>
+    </div>
+  </div>
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+    <span class="material-symbols-outlined text-primary/30">keyboard_double_arrow_down</span>
+  </div>
+</section>
+
+<!-- ARTIST STORY -->
+<section class="py-32 px-margin-desktop bg-background" id="story">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+    <!-- Portrait -->
+    <div class="lg:col-span-5 relative group reveal">
+      <div class="absolute -inset-4 border border-secondary/20 -z-10 transition-transform duration-700 group-hover:scale-105"></div>
+      <div class="w-full aspect-[3/4] relative overflow-hidden" style="background: linear-gradient(145deg, #1a0533 0%, #0d0820 50%, #200520 100%)">
+        <img alt="Roxy June" class="absolute inset-0 w-full h-full object-cover object-top grayscale brightness-75 hover:grayscale-0 transition-all duration-1000" src="roxy-portrait.jpg" onerror="this.style.display='none'" />
+        <div class="absolute inset-0 z-10" style="background: linear-gradient(to top, rgba(13,8,32,0.85) 0%, transparent 55%)"></div>
+        <div class="absolute bottom-6 left-6 z-20">
+          <span class="font-label-caps text-[10px] text-secondary tracking-[0.3em] uppercase">Thailand's No.1 Female DJ</span>
+        </div>
+      </div>
+      <div class="absolute bottom-8 right-0 bg-surface/80 backdrop-blur-md p-6 chrome-border translate-x-4">
+        <p class="font-label-caps text-[10px] text-secondary-fixed-dim mb-1">BASED IN</p>
+        <p class="font-headline-md text-xl">BANGKOK, THAILAND</p>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="lg:col-span-7 flex flex-col justify-center">
+      <h2 class="font-display-lg text-headline-md mb-8 reveal">THE GENESIS</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <p class="text-on-surface-variant leading-relaxed reveal">
+          Self-taught, relentless, and undeniably magnetic — Thailand's No.1 Female DJ and Pioneer Lady DJ Champion 2010. As a V-MODA &amp; UDG Ambassador, her sound is a visceral exploration of rhythmic energy and dark euphoria.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed border-l border-white/10 pl-8 reveal">
+          Over 15 years of sonic evolution, traversing 30+ countries and headlining the world's most revered festival mainstages and exclusive club nights — turning every performance into a moment that lives far beyond the morning after.
+        </p>
+      </div>
+      <div class="mb-12 reveal">
+        <p class="font-label-caps text-[10px] text-secondary mb-4 tracking-[0.3em] uppercase">Sonic DNA</p>
+        <p class="font-display-lg text-2xl text-primary uppercase flex flex-wrap gap-x-6 gap-y-2">
+          <span>EDM</span><span class="text-outline">/</span><span>Hardstyle</span><span class="text-outline">/</span><span>Hard Dance</span><span class="text-outline">/</span><span>Open Format</span>
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-8 py-8 border-y border-white/5 reveal">
+        <div>
+          <p class="font-display-lg text-4xl text-primary mb-1">15+</p>
+          <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Years Active</p>
+        </div>
+        <div>
+          <p class="font-display-lg text-4xl text-primary mb-1">30+</p>
+          <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Countries</p>
+        </div>
+        <div>
+          <p class="font-display-lg text-4xl text-primary mb-1">#1</p>
+          <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Thailand</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINSTAGE HISTORY -->
+<section class="py-24 px-margin-desktop bg-surface-container-lowest border-y border-white/5">
+  <div class="max-w-container-max mx-auto">
+    <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-12 tracking-[0.5em] text-center uppercase reveal">Mainstage History</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+      <div class="p-6 chrome-border glass-panel hover:bg-white/5 transition-colors reveal"><p class="font-label-caps text-[10px] text-primary">WORLD DJ MUSIC FESTIVAL</p></div>
+      <div class="p-6 chrome-border glass-panel hover:bg-white/5 transition-colors reveal"><p class="font-label-caps text-[10px] text-primary">ULTRA KOREA</p></div>
+      <div class="p-6 chrome-border glass-panel hover:bg-white/5 transition-colors reveal"><p class="font-label-caps text-[10px] text-primary">S2O</p></div>
+      <div class="p-6 chrome-border glass-panel hover:bg-white/5 transition-colors reveal"><p class="font-label-caps text-[10px] text-primary">WATERZONIC</p></div>
+      <div class="p-6 chrome-border glass-panel hover:bg-white/5 transition-colors reveal"><p class="font-label-caps text-[10px] text-primary">CREAMFIELDS</p></div>
+      <div class="p-6 chrome-border glass-panel hover:bg-white/5 transition-colors reveal"><p class="font-label-caps text-[10px] text-primary">DON'T LET DADDY KNOW</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="py-48 bg-surface-container-lowest relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle, #A855F7 1px, transparent 1px); background-size: 40px 40px;"></div>
+  </div>
+  <div class="max-w-4xl mx-auto text-center px-margin-mobile relative z-10">
+    <span class="material-symbols-outlined text-secondary text-5xl mb-8 block" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+    <blockquote class="font-display-lg text-headline-md md:text-6xl italic leading-tight text-primary reveal">
+      "I don't play music; <span class="text-secondary">I architect experiences</span> that resonate within the digital and physical realm."
+    </blockquote>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="py-32 px-margin-desktop bg-background" id="music">
+  <div class="flex justify-between items-end mb-16">
+    <div>
+      <h2 class="font-display-lg text-headline-md reveal">DIGITAL ARTIFACTS</h2>
+      <p class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase tracking-widest reveal">The Vinyl Protocol</p>
+    </div>
+    <a class="font-label-caps text-label-caps text-secondary border-b border-secondary/30 pb-1 hover:border-secondary transition-all reveal" href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener">VIEW ON SPOTIFY</a>
+  </div>
+
+  <!-- Spotify embed -->
+  <div class="mb-12 border border-white/5 overflow-hidden reveal">
+    <iframe style="border-radius:0"
+      src="https://open.spotify.com/embed/artist/4LkOdoUJgEEcdhhGDJ4T2m?utm_source=generator&theme=0"
+      width="100%" height="352" frameborder="0" allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy" title="Roxy June on Spotify"></iframe>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+    <!-- Track 1 -->
+    <div class="group relative aspect-square overflow-hidden reveal" style="background: linear-gradient(145deg, #1a0533 0%, #0d0820 50%, #200520 100%)">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="font-display-lg text-[140px] text-white/5 font-bold leading-none select-none">I</span>
+      </div>
+      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 backdrop-blur-sm">
+        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2019 · ORIGINAL MIX</span>
+        <h3 class="font-display-lg text-3xl text-primary mb-4">LET THEM FIGHT</h3>
+        <div class="flex gap-4">
+          <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-sm">play_arrow</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Track 2 -->
+    <div class="group relative aspect-square overflow-hidden reveal" style="background: linear-gradient(145deg, #001a1a 0%, #0d1a33 50%, #0d0d1a 100%)">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="font-display-lg text-[120px] text-white/5 font-bold leading-none select-none">II</span>
+      </div>
+      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 backdrop-blur-sm">
+        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2018 · ORIGINAL MIX</span>
+        <h3 class="font-display-lg text-3xl text-primary mb-4">HIT THAT</h3>
+        <div class="flex gap-4">
+          <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-sm">play_arrow</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Track 3 -->
+    <div class="group relative aspect-square overflow-hidden reveal" style="background: linear-gradient(145deg, #0d0d0d 0%, #1a1a2e 50%, #16213e 100%)">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="font-display-lg text-[100px] text-white/5 font-bold leading-none select-none">III</span>
+      </div>
+      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 backdrop-blur-sm">
+        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2016 · DEBUT SINGLE</span>
+        <h3 class="font-display-lg text-3xl text-primary mb-4">BACK N FORTH</h3>
+        <div class="flex gap-4">
+          <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-sm">play_arrow</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR DATES -->
+<section class="py-32 px-margin-desktop bg-surface-container-lowest" id="tour">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="font-display-lg text-headline-md uppercase tracking-widest reveal">UPCOMING APPARITIONS</h2>
+      <p class="font-label-caps text-[10px] text-secondary mt-4 tracking-[0.2em] uppercase reveal">Global Reach: Asia · Europe · Middle East · Worldwide</p>
+      <div class="h-1 w-20 bg-secondary mx-auto mt-4"></div>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">TBA</p>
+            <p class="font-display-lg text-3xl text-primary">2025</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">BANGKOK</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">The Club Khaosan · Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">INQUIRE</a>
+      </div>
+      <div class="flex items-center justify-between p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">TBA</p>
+            <p class="font-display-lg text-3xl text-primary">2025</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">WATERZONIC</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">INQUIRE</a>
+      </div>
+      <div class="flex items-center justify-between p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">TBA</p>
+            <p class="font-display-lg text-3xl text-primary">2025</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">INTERNATIONAL TOUR</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Asia &amp; Europe 🌏</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOKING OPEN</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING / CONTACT -->
+<section class="py-32 px-margin-desktop bg-background relative overflow-hidden" id="booking">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+
+    <!-- Left: headline over dark bg -->
+    <div class="relative reveal">
+      <div class="w-full aspect-square opacity-50" style="background: linear-gradient(145deg, #1a0533 0%, #0d0820 40%, #200520 100%)"></div>
+      <div class="absolute inset-0 flex items-center justify-center px-8">
+        <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg chrome-text leading-none text-center">THE CONTACT PROTOCOL</h2>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="glass-panel p-12 chrome-border reveal">
+      <form id="booking-form" class="space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-2">
+            <label class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">YOUR NAME</label>
+            <input class="w-full bg-transparent border-0 border-b border-white/10 focus:border-secondary text-primary transition-all p-0 pb-2" type="text" name="name" placeholder="Full name" required />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">YOUR EMAIL</label>
+            <input class="w-full bg-transparent border-0 border-b border-white/10 focus:border-secondary text-primary transition-all p-0 pb-2" type="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">EVENT DETAILS (LOCATION, DATE, VENUE)</label>
+          <textarea class="w-full bg-transparent border-0 border-b border-white/10 focus:border-secondary text-primary transition-all p-0 pb-2 resize-none" rows="4" name="message" placeholder="Tell us about your event, vision, and audience…"></textarea>
+        </div>
+        <button class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps hover:bg-secondary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all uppercase" type="submit">INITIATE REQUEST</button>
+      </form>
+      <div id="form-success" class="hidden text-center py-16">
+        <div class="w-14 h-14 border border-secondary/40 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">check</span>
+        </div>
+        <p class="font-display-lg text-2xl italic text-primary mb-3">Message received</p>
+        <p class="text-on-surface-variant text-sm">We'll be in touch within 24–48 hours.</p>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/5 grid grid-cols-2 gap-8">
+        <div>
+          <p class="font-label-caps text-[10px] text-secondary mb-2 uppercase">Bookings</p>
+          <a href="mailto:Junefoubar@hotmail.com" class="text-sm font-light hover:text-secondary transition-colors">Junefoubar@hotmail.com</a>
+        </div>
+        <div>
+          <p class="font-label-caps text-[10px] text-secondary mb-2 uppercase">WhatsApp</p>
+          <!-- Replace 66XXXXXXXXX with real number -->
+          <a href="https://wa.me/66XXXXXXXXX" target="_blank" rel="noopener" class="text-sm font-light hover:text-secondary transition-colors">+66 XXX XXX XXX</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="w-full py-24 bg-background border-t border-white/5 flex flex-col items-center gap-12 px-margin-desktop">
+  <div class="font-display-lg text-headline-md text-primary tracking-widest uppercase">ROXY JUNE</div>
+  <div class="flex flex-wrap justify-center gap-12">
+    <a class="flex items-center gap-2 font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant hover:text-secondary transition-all duration-500 uppercase" href="https://www.instagram.com/DJROXYJUNE" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:inline-block;vertical-align:middle"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram
+    </a>
+    <a class="flex items-center gap-2 font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant hover:text-secondary transition-all duration-500 uppercase" href="https://www.facebook.com/djroxyjune" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:inline-block;vertical-align:middle"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> Facebook
+    </a>
+    <a class="flex items-center gap-2 font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant hover:text-secondary transition-all duration-500 uppercase" href="https://soundcloud.com/djroxyjune" target="_blank" rel="noopener">
+      <span class="material-symbols-outlined text-lg">cloud</span> SoundCloud
+    </a>
+    <a class="flex items-center gap-2 font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant hover:text-secondary transition-all duration-500 uppercase" href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115.294.181.387.565.207.857zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.785-2.131-9.965-1.166a.78.78 0 01-.973-.519.781.781 0 01.519-.972c3.632-1.102 8.147-.568 11.234 1.328a.78.78 0 01.257 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.794c3.532-1.072 9.404-.865 13.115 1.338a.937.937 0 01-.955 1.613z"/></svg> Spotify
+    </a>
+    <a class="flex items-center gap-2 font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant hover:text-secondary transition-all duration-500 uppercase" href="mailto:Junefoubar@hotmail.com">
+      <span class="material-symbols-outlined text-lg">mail</span> Bookings
+    </a>
+  </div>
+  <div class="text-center">
+    <p class="font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant/40">© 2025 ROXY JUNE. ALL RIGHTS RESERVED.</p>
+    <p class="font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant/20 mt-2 uppercase">Built by <span style="color:rgba(221,183,255,0.3)">Dreamkey Media</span></p>
+  </div>
+</footer>
+
+<!-- PERSISTENT MEDIA PLAYER -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl rounded-full border border-white/20 bg-surface-container-low/40 backdrop-blur-2xl shadow-[0_0_40px_rgba(221,183,255,0.15)] flex justify-around items-center h-16 px-8 z-50">
+  <div class="flex items-center gap-4 flex-1">
+    <div class="w-10 h-10 flex-shrink-0 rounded overflow-hidden" style="background: linear-gradient(145deg, #1a0533, #200520)"></div>
+    <div class="hidden sm:block">
+      <p class="font-label-caps text-[10px] text-secondary truncate">LET THEM FIGHT</p>
+      <p class="font-label-caps text-[8px] text-on-surface-variant truncate uppercase">ROXY JUNE</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-8 px-8 border-x border-white/5">
+    <button class="text-primary/60 hover:text-primary transition-transform hover:scale-110" aria-label="Previous">
+      <span class="material-symbols-outlined text-xl">skip_previous</span>
+    </button>
+    <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="text-secondary drop-shadow-[0_0_8px_rgba(221,183,255,0.8)] transition-transform hover:scale-110 active:scale-90" aria-label="Listen on Spotify">
+      <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+    </a>
+    <button class="text-primary/60 hover:text-primary transition-transform hover:scale-110" aria-label="Next">
+      <span class="material-symbols-outlined text-xl">skip_next</span>
+    </button>
+  </div>
+  <div class="flex items-center gap-4 flex-1 justify-end">
+    <span class="material-symbols-outlined text-primary/60 text-lg">volume_up</span>
+    <div class="w-24 h-1 bg-white/10 relative rounded-full overflow-hidden hidden md:block">
+      <div class="absolute inset-0 bg-secondary w-2/3 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  /* ── MOBILE MENU ── */
+  const hamburger = document.getElementById('hamburger');
+  const mm = document.getElementById('mobile-menu');
+  const mmClose = document.getElementById('mobile-close');
+  hamburger.addEventListener('click', () => { mm.classList.remove('hidden'); mm.classList.add('flex'); });
+  mmClose.addEventListener('click', () => { mm.classList.add('hidden'); mm.classList.remove('flex'); });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mm.classList.add('hidden'); mm.classList.remove('flex'); }));
+
+  /* ── FORM ── */
+  document.getElementById('booking-form').addEventListener('submit', e => {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('form-success').classList.remove('hidden');
+  });
+
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const h = a.getAttribute('href');
+      if (h === '#') { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      const el = document.querySelector(h);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  /* ── SCROLL REVEAL ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
