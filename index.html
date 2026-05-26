@@ -93,10 +93,17 @@
   }
 </script>
 <style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
   body {
     background-color: #131313;
     color: #e2e2e2;
-    overflow-x: hidden;
   }
   .chrome-text {
     background: linear-gradient(180deg, #dcdcdc 0%, #8e9192 100%);
@@ -195,12 +202,12 @@
 </section>
 
 <!-- ARTIST STORY -->
-<section class="pt-0 pb-12 md:py-32 px-margin-desktop bg-background" id="story">
+<section class="pt-0 pb-12 md:py-32 px-5 md:px-margin-desktop bg-background" id="story">
   <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
     <!-- Portrait -->
     <div class="lg:col-span-5 relative group">
-      <div class="absolute -inset-4 border border-secondary/20 -z-10 transition-transform duration-700 group-hover:scale-105"></div>
+      <div class="absolute inset-0 md:-inset-4 border border-secondary/20 -z-10 transition-transform duration-700 group-hover:scale-105"></div>
       <div class="w-full aspect-[3/4] relative overflow-hidden" style="background: linear-gradient(145deg, #1a0533 0%, #0d0820 50%, #200520 100%)">
         <img alt="Roxy June" class="absolute inset-0 w-full h-full object-cover object-top grayscale brightness-75 hover:grayscale-0 transition-all duration-1000" src="Image/roxy-june.jpg" />
         <div class="absolute inset-0 z-10" style="background: linear-gradient(to top, rgba(13,8,32,0.85) 0%, transparent 55%)"></div>
@@ -208,7 +215,7 @@
           <span class="font-label-caps text-[10px] text-secondary tracking-[0.3em] uppercase">Thailand's No.1 Female DJ</span>
         </div>
       </div>
-      <div class="absolute bottom-8 right-0 bg-surface/80 backdrop-blur-md p-6 chrome-border translate-x-4">
+      <div class="absolute bottom-8 right-0 bg-surface/80 backdrop-blur-md p-4 md:p-6 chrome-border md:translate-x-4">
         <p class="font-label-caps text-[10px] text-secondary-fixed-dim mb-1">BASED IN</p>
         <p class="font-headline-md text-xl">BANGKOK, THAILAND</p>
       </div>
@@ -256,7 +263,7 @@
 </section>
 
 <!-- PHOTO GALLERY -->
-<section class="py-4 px-margin-desktop bg-background">
+<section class="py-4 px-2 md:px-margin-desktop bg-background">
   <div class="max-w-container-max mx-auto">
     <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
       <!-- large left -->
@@ -284,7 +291,7 @@
 </section>
 
 <!-- MAINSTAGE HISTORY -->
-<section class="py-24 px-margin-desktop bg-surface-container-lowest border-y border-white/5">
+<section class="py-16 md:py-24 px-5 md:px-margin-desktop bg-surface-container-lowest border-y border-white/5">
   <div class="max-w-container-max mx-auto">
     <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-12 tracking-[0.5em] text-center uppercase reveal">Mainstage History</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
@@ -313,8 +320,8 @@
 </section>
 
 <!-- MUSIC -->
-<section class="py-32 px-margin-desktop bg-background" id="music">
-  <div class="flex justify-between items-end mb-16">
+<section class="py-16 md:py-32 px-5 md:px-margin-desktop bg-background" id="music">
+  <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-10 md:mb-16">
     <div>
       <h2 class="font-display-lg text-headline-md reveal">DIGITAL ARTIFACTS</h2>
       <p class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase tracking-widest reveal">The Vinyl Protocol</p>
@@ -378,16 +385,16 @@
 </section>
 
 <!-- TOUR DATES -->
-<section class="py-32 px-margin-desktop bg-surface-container-lowest" id="tour">
+<section class="py-16 md:py-32 px-5 md:px-margin-desktop bg-surface-container-lowest" id="tour">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="font-display-lg text-headline-md uppercase tracking-widest reveal">UPCOMING APPARITIONS</h2>
+      <h2 class="font-display-lg text-2xl md:text-headline-md uppercase tracking-wide md:tracking-widest reveal">UPCOMING APPARITIONS</h2>
       <p class="font-label-caps text-[10px] text-secondary mt-4 tracking-[0.2em] uppercase reveal">Global Reach: Asia · Europe · Middle East · Worldwide</p>
       <div class="h-1 w-20 bg-secondary mx-auto mt-4"></div>
     </div>
     <div class="space-y-4">
-      <div class="flex items-center justify-between p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
-        <div class="flex items-center gap-12">
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
           <div class="text-center min-w-[60px]">
             <p class="font-label-caps text-[10px] text-on-surface-variant">TBA</p>
             <p class="font-display-lg text-3xl text-primary">2025</p>
@@ -399,8 +406,8 @@
         </div>
         <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">INQUIRE</a>
       </div>
-      <div class="flex items-center justify-between p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
-        <div class="flex items-center gap-12">
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
           <div class="text-center min-w-[60px]">
             <p class="font-label-caps text-[10px] text-on-surface-variant">TBA</p>
             <p class="font-display-lg text-3xl text-primary">2025</p>
@@ -412,8 +419,8 @@
         </div>
         <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">INQUIRE</a>
       </div>
-      <div class="flex items-center justify-between p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
-        <div class="flex items-center gap-12">
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
           <div class="text-center min-w-[60px]">
             <p class="font-label-caps text-[10px] text-on-surface-variant">TBA</p>
             <p class="font-display-lg text-3xl text-primary">2025</p>
@@ -430,7 +437,7 @@
 </section>
 
 <!-- BOOKING / CONTACT -->
-<section class="py-32 px-margin-desktop bg-background relative overflow-hidden" id="booking">
+<section class="py-16 md:py-32 px-5 md:px-margin-desktop bg-background relative overflow-hidden" id="booking">
   <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 
     <!-- Left: headline over dark bg -->
@@ -442,7 +449,7 @@
     </div>
 
     <!-- Right: form -->
-    <div class="glass-panel p-12 chrome-border reveal">
+    <div class="glass-panel p-6 md:p-12 chrome-border reveal">
       <form id="booking-form" class="space-y-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="space-y-2">
@@ -484,7 +491,7 @@
 
 
 <!-- FOOTER -->
-<footer class="w-full py-24 bg-background border-t border-white/5 flex flex-col items-center gap-12 px-margin-desktop">
+<footer class="w-full py-16 md:py-24 bg-background border-t border-white/5 flex flex-col items-center gap-12 px-5 md:px-margin-desktop">
   <div class="font-display-lg text-headline-md text-primary tracking-widest uppercase">ROXY JUNE</div>
   <div class="flex flex-wrap justify-center gap-12">
     <a class="flex items-center gap-2 font-label-caps text-[10px] tracking-[0.3em] text-on-surface-variant hover:text-secondary transition-all duration-500 uppercase" href="https://www.instagram.com/DJROXYJUNE" target="_blank" rel="noopener">
@@ -510,7 +517,7 @@
 </footer>
 
 <!-- PERSISTENT MEDIA PLAYER -->
-<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl rounded-full border border-white/20 bg-surface-container-low/40 backdrop-blur-2xl shadow-[0_0_40px_rgba(221,183,255,0.15)] flex justify-around items-center h-16 px-8 z-50">
+<div class="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-2xl rounded-full border border-white/20 bg-surface-container-low/40 backdrop-blur-2xl shadow-[0_0_40px_rgba(221,183,255,0.15)] flex justify-around items-center h-14 md:h-16 px-4 md:px-8 z-50">
   <div class="flex items-center gap-4 flex-1">
     <div class="w-10 h-10 flex-shrink-0 rounded overflow-hidden" style="background: linear-gradient(145deg, #1a0533, #200520)"></div>
     <div class="hidden sm:block">
@@ -518,7 +525,7 @@
       <p class="font-label-caps text-[8px] text-on-surface-variant truncate uppercase">ROXY JUNE</p>
     </div>
   </div>
-  <div class="flex items-center gap-8 px-8 border-x border-white/5">
+  <div class="flex items-center gap-4 md:gap-8 px-4 md:px-8 border-x border-white/5">
     <button class="text-primary/60 hover:text-primary transition-transform hover:scale-110" aria-label="Previous">
       <span class="material-symbols-outlined text-xl">skip_previous</span>
     </button>
