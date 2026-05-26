@@ -174,9 +174,11 @@
 <!-- HERO -->
 <section class="relative h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
-    <!-- Swap src to roxy-portrait.jpg when photo is ready -->
-    <img alt="Roxy June" class="w-full h-full object-cover object-top opacity-60 grayscale scale-105" src="Image/roxy-june.jpg" />
-    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(19,19,19,0.2) 0%, rgba(19,19,19,0.1) 40%, #131313 100%), radial-gradient(ellipse 80% 60% at 60% 40%, #1a0533 0%, #131313 70%)"></div>
+    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 scale-105">
+      <source src="Image/hero-reel.mp4" type="video/mp4" />
+      <img alt="Roxy June" class="w-full h-full object-cover object-top" src="Image/roxy-june.jpg" />
+    </video>
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(19,19,19,0.1) 0%, transparent 40%, #131313 100%)"></div>
   </div>
   <div class="relative z-10 text-center px-margin-mobile">
     <h2 class="font-label-caps text-label-caps text-secondary mb-6 tracking-[0.5em] opacity-80">EST. 2009</h2>
@@ -217,17 +219,23 @@
       <h2 class="font-display-lg text-headline-md mb-8 reveal">THE GENESIS</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <p class="text-on-surface-variant leading-relaxed reveal">
-          Self-taught, relentless, and undeniably magnetic — Thailand's No.1 Female DJ and Pioneer Lady DJ Champion 2010. As a V-MODA &amp; UDG Ambassador, her sound is a visceral exploration of rhythmic energy and dark euphoria.
+          Thailand's No.1 Female DJ and self-made sonic force, Roxy June has earned her title the hard way — on mainstages across 30+ countries. Known as the <em>Queen of Neck Breakers</em>, she has commanded rooms from Los Angeles to London, Sydney to Seoul, and Abu Dhabi to Hong Kong. A headline fixture at World DJ Music Festival, Global Gathering, S2O, Waterzonic, and Don't Let Daddy Know, her sets are visceral, relentless, and impossible to forget.
         </p>
         <p class="text-on-surface-variant leading-relaxed border-l border-white/10 pl-8 reveal">
-          Over 15 years of sonic evolution, traversing 30+ countries and headlining the world's most revered festival mainstages and exclusive club nights — turning every performance into a moment that lives far beyond the morning after.
+          Winner of the Pioneer Pro DJ Lady Championship 2010, ranked Top 9 Female DJ by DJane Mag, and named #1 Hottest by EDMdroid — the accolades follow the work, not the other way around. As a V-MODA Brand Ambassador and UDG endorsee, she carries the full weight of the craft. In the studio, her productions speak the same language as her sets: <em>Back N Forth</em>, <em>Hit That</em>, and <em>Let Them Fight</em> — each one a statement, none of them asking permission.
         </p>
       </div>
       <div class="mb-12 reveal">
         <p class="font-label-caps text-[10px] text-secondary mb-4 tracking-[0.3em] uppercase">Sonic DNA</p>
-        <p class="font-display-lg text-2xl text-primary uppercase flex flex-wrap gap-x-6 gap-y-2">
-          <span>EDM</span><span class="text-outline">/</span><span>Hardstyle</span><span class="text-outline">/</span><span>Hard Dance</span><span class="text-outline">/</span><span>Open Format</span>
+        <p class="font-display-lg text-xl text-primary uppercase flex flex-nowrap items-center gap-x-4 whitespace-nowrap">
+          <span>EDM</span><span class="text-outline">/</span><span>Hardstyle</span><span class="text-outline">/</span><span>Hard Dance</span><span class="text-outline">/</span><span>Mash-up</span>
         </p>
+      </div>
+      <div class="mb-8 reveal">
+        <a href="RoxyJune-EPK.pdf" download="RoxyJune-EPK.pdf" class="inline-flex items-center gap-3 font-label-caps text-label-caps px-8 py-4 border border-primary/40 text-primary hover:border-secondary hover:text-secondary transition-all group">
+          <span class="material-symbols-outlined text-base transition-transform group-hover:-translate-y-0.5">download</span>
+          DOWNLOAD EPK
+        </a>
       </div>
       <div class="grid grid-cols-3 gap-8 py-8 border-y border-white/5 reveal">
         <div>
@@ -242,6 +250,34 @@
           <p class="font-display-lg text-4xl text-primary mb-1">#1</p>
           <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Thailand</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="py-4 px-margin-desktop bg-background">
+  <div class="max-w-container-max mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+      <!-- large left -->
+      <div class="row-span-2 overflow-hidden group">
+        <img src="Image/photo-1.jpg" alt="Roxy June" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" />
+      </div>
+      <!-- top middle -->
+      <div class="overflow-hidden group">
+        <img src="Image/photo-2.jpg" alt="Roxy June" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+      </div>
+      <!-- top right -->
+      <div class="overflow-hidden group">
+        <img src="Image/photo-3.jpg" alt="Roxy June" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+      </div>
+      <!-- bottom middle -->
+      <div class="overflow-hidden group">
+        <img src="Image/photo-6.jpg" alt="Roxy June" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+      </div>
+      <!-- bottom right — span 2 on mobile hidden, show on md -->
+      <div class="hidden md:block overflow-hidden group col-span-1">
+        <img src="Image/photo-5.jpg" alt="Roxy June" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
       </div>
     </div>
   </div>
@@ -263,11 +299,12 @@
 </section>
 
 <!-- QUOTE -->
-<section class="py-48 bg-surface-container-lowest relative overflow-hidden">
-  <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle, #A855F7 1px, transparent 1px); background-size: 40px 40px;"></div>
-  </div>
-  <div class="max-w-4xl mx-auto text-center px-margin-mobile relative z-10">
+<section class="py-48 relative overflow-hidden">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" style="z-index:0">
+    <source src="Image/snap-clip.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(13,8,32,0.75) 0%, rgba(13,8,32,0.85) 100%); z-index:1"></div>
+  <div class="max-w-4xl mx-auto text-center px-margin-mobile relative" style="z-index:2">
     <span class="material-symbols-outlined text-secondary text-5xl mb-8 block" style="font-variation-settings: 'FILL' 1;">format_quote</span>
     <blockquote class="font-display-lg text-headline-md md:text-6xl italic leading-tight text-primary reveal">
       "I don't play music; <span class="text-secondary">I architect experiences</span> that resonate within the digital and physical realm."
@@ -296,45 +333,42 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
     <!-- Track 1 -->
-    <div class="group relative aspect-square overflow-hidden reveal" style="background: linear-gradient(145deg, #1a0533 0%, #0d0820 50%, #200520 100%)">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <span class="font-display-lg text-[140px] text-white/5 font-bold leading-none select-none">I</span>
-      </div>
+    <div class="group relative aspect-square overflow-hidden reveal">
+      <img src="https://i.scdn.co/image/ab67616d0000b2734695203711213123369b00d6" alt="Let Them Fight" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-black/30"></div>
       <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 backdrop-blur-sm">
         <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2019 · ORIGINAL MIX</span>
         <h3 class="font-display-lg text-3xl text-primary mb-4">LET THEM FIGHT</h3>
         <div class="flex gap-4">
-          <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
+          <a href="https://open.spotify.com/track/20zkuNgXH4M2d1a5yZ4bZ2" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
             <span class="material-symbols-outlined text-sm">play_arrow</span>
           </a>
         </div>
       </div>
     </div>
     <!-- Track 2 -->
-    <div class="group relative aspect-square overflow-hidden reveal" style="background: linear-gradient(145deg, #001a1a 0%, #0d1a33 50%, #0d0d1a 100%)">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <span class="font-display-lg text-[120px] text-white/5 font-bold leading-none select-none">II</span>
-      </div>
+    <div class="group relative aspect-square overflow-hidden reveal">
+      <img src="https://i.scdn.co/image/ab67616d0000b273fa3b8e597b820620f1e9ea51" alt="Still Alive" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-black/30"></div>
       <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 backdrop-blur-sm">
-        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2018 · ORIGINAL MIX</span>
-        <h3 class="font-display-lg text-3xl text-primary mb-4">HIT THAT</h3>
+        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2023 · ORIGINAL MIX</span>
+        <h3 class="font-display-lg text-3xl text-primary mb-4">STILL ALIVE</h3>
         <div class="flex gap-4">
-          <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
+          <a href="https://open.spotify.com/track/1NOYe2ObYZeCFYZ2G8Qd3w" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
             <span class="material-symbols-outlined text-sm">play_arrow</span>
           </a>
         </div>
       </div>
     </div>
     <!-- Track 3 -->
-    <div class="group relative aspect-square overflow-hidden reveal" style="background: linear-gradient(145deg, #0d0d0d 0%, #1a1a2e 50%, #16213e 100%)">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <span class="font-display-lg text-[100px] text-white/5 font-bold leading-none select-none">III</span>
-      </div>
+    <div class="group relative aspect-square overflow-hidden reveal">
+      <img src="https://i.scdn.co/image/ab67616d0000b2731632c0a7eb2700b8be6acd24" alt="Back n' Forth" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-black/30"></div>
       <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 backdrop-blur-sm">
-        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2016 · DEBUT SINGLE</span>
-        <h3 class="font-display-lg text-3xl text-primary mb-4">BACK N FORTH</h3>
+        <span class="font-label-caps text-[10px] text-secondary mb-2 tracking-[0.3em]">2017 · DEBUT SINGLE</span>
+        <h3 class="font-display-lg text-3xl text-primary mb-4">BACK N' FORTH</h3>
         <div class="flex gap-4">
-          <a href="https://open.spotify.com/artist/4LkOdoUJgEEcdhhGDJ4T2m" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
+          <a href="https://open.spotify.com/track/2JAhBrW0BK8hdBJqKU2zpd" target="_blank" rel="noopener" class="p-3 border border-white/20 hover:border-secondary transition-colors rounded-full flex items-center justify-center">
             <span class="material-symbols-outlined text-sm">play_arrow</span>
           </a>
         </div>
@@ -514,10 +548,33 @@
   document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mm.classList.add('hidden'); mm.classList.remove('flex'); }));
 
   /* ── FORM ── */
-  document.getElementById('booking-form').addEventListener('submit', e => {
+  document.getElementById('booking-form').addEventListener('submit', async e => {
     e.preventDefault();
-    e.target.style.display = 'none';
-    document.getElementById('form-success').classList.remove('hidden');
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'SENDING…';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/Junefoubar@hotmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    e.target.name.value,
+          email:   e.target.email.value,
+          message: e.target.message.value,
+          _subject: 'New Booking Request — Roxy June'
+        })
+      });
+      if (res.ok) {
+        e.target.style.display = 'none';
+        document.getElementById('form-success').classList.remove('hidden');
+      } else {
+        btn.textContent = 'ERROR — TRY AGAIN';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'ERROR — TRY AGAIN';
+      btn.disabled = false;
+    }
   });
 
   /* ── SMOOTH SCROLL ── */
