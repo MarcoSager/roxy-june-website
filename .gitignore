@@ -2,3 +2,10 @@
 .firecrawl/
 Press kit RoxyJune/
 Press kit RoxyJune 2/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
