@@ -123,22 +123,69 @@
   .neon-glow:hover {
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
   }
+  /* easing tokens */
+  :root {
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  }
   /* scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
+    transform: translateY(32px);
+    transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
   }
   .reveal.in {
     opacity: 1;
     transform: translateY(0);
   }
   /* stagger siblings */
-  .reveal:nth-child(2) { transition-delay: 0.08s; }
-  .reveal:nth-child(3) { transition-delay: 0.16s; }
-  .reveal:nth-child(4) { transition-delay: 0.24s; }
-  .reveal:nth-child(5) { transition-delay: 0.32s; }
-  .reveal:nth-child(6) { transition-delay: 0.40s; }
+  .reveal:nth-child(2) { transition-delay: 0.10s; }
+  .reveal:nth-child(3) { transition-delay: 0.20s; }
+  .reveal:nth-child(4) { transition-delay: 0.30s; }
+  .reveal:nth-child(5) { transition-delay: 0.40s; }
+  .reveal:nth-child(6) { transition-delay: 0.50s; }
+  /* hero entrance choreography */
+  @keyframes heroLabel {
+    from { opacity: 0; letter-spacing: 0.9em; }
+    to   { opacity: 0.7; letter-spacing: 0.5em; }
+  }
+  @keyframes heroTitle {
+    from { opacity: 0; transform: translateY(52px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroTagline {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-label   { animation: heroLabel   0.9s var(--ease-out-expo)  0.20s both; }
+  .hero-title   { animation: heroTitle   1.1s var(--ease-out-expo)  0.55s both; }
+  .hero-tagline { animation: heroTagline 0.8s var(--ease-out-quart) 1.30s both; }
+  /* portrait float */
+  @keyframes floatDrift {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-9px); }
+  }
+  .float-portrait { animation: floatDrift 6.5s ease-in-out infinite; }
+  /* media player glow pulse */
+  @keyframes mediaPulse {
+    0%, 100% { box-shadow: 0 0 40px rgba(221,183,255,0.12); }
+    50%       { box-shadow: 0 0 72px rgba(221,183,255,0.30); }
+  }
+  .media-glow { animation: mediaPulse 3.5s ease-in-out infinite; }
+  /* nav scrolled tightening */
+  header.nav-scrolled {
+    background: rgba(19,19,19,0.95) !important;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.7);
+    transition: background 0.5s var(--ease-out-quart), box-shadow 0.5s var(--ease-out-quart);
+  }
+  /* reduced motion — accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
   /* form inputs */
   input::placeholder, textarea::placeholder { color: rgba(196,199,199,0.35); }
   input:focus, textarea:focus { outline: none; }
@@ -181,16 +228,16 @@
 <!-- HERO -->
 <section class="relative h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
-    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 scale-105">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-80" style="will-change:transform;transform:scale(1.08)">
       <source src="Image/hero-reel.mp4" type="video/mp4" />
       <img alt="Roxy June" class="w-full h-full object-cover object-top" src="Image/roxy-june.jpg" />
     </video>
     <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(19,19,19,0.1) 0%, transparent 40%, #131313 100%)"></div>
   </div>
   <div class="relative z-10 text-center px-margin-mobile">
-    <h2 class="font-label-caps text-label-caps text-secondary mb-6 tracking-[0.5em] opacity-80">EST. 2009</h2>
-    <h1 class="font-display-lg text-[11vw] md:text-[120px] chrome-text leading-none mb-8">SONIC<br/>ARCHITECTURE</h1>
-    <div class="flex justify-center gap-4">
+    <h2 class="font-label-caps text-label-caps text-secondary mb-6 tracking-[0.5em] hero-label">EST. 2009</h2>
+    <h1 class="font-display-lg text-[11vw] md:text-[120px] chrome-text leading-none mb-8 hero-title">SONIC<br/>ARCHITECTURE</h1>
+    <div class="flex justify-center gap-4 hero-tagline">
       <div class="h-[1px] w-8 md:w-24 bg-primary self-center shrink-0"></div>
       <span class="font-label-caps text-label-caps text-on-surface-variant italic whitespace-nowrap">THE FUTURE OF SOUND</span>
       <div class="h-[1px] w-8 md:w-24 bg-primary self-center shrink-0"></div>
@@ -206,7 +253,7 @@
   <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
     <!-- Portrait -->
-    <div class="lg:col-span-5 relative group">
+    <div class="lg:col-span-5 relative group float-portrait">
       <div class="absolute inset-0 md:-inset-4 border border-secondary/20 -z-10 transition-transform duration-700 group-hover:scale-105"></div>
       <div class="w-full aspect-[3/4] relative overflow-hidden" style="background: linear-gradient(145deg, #1a0533 0%, #0d0820 50%, #200520 100%)">
         <img alt="Roxy June" class="absolute inset-0 w-full h-full object-cover object-top grayscale brightness-75 hover:grayscale-0 transition-all duration-1000" src="Image/roxy-june.jpg" />
@@ -246,11 +293,11 @@
       </div>
       <div class="grid grid-cols-3 gap-8 py-8 border-y border-white/5 reveal">
         <div>
-          <p class="font-display-lg text-4xl text-primary mb-1">15+</p>
+          <p class="font-display-lg text-4xl text-primary mb-1" data-count="15" data-suffix="+">15+</p>
           <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Years Active</p>
         </div>
         <div>
-          <p class="font-display-lg text-4xl text-primary mb-1">30+</p>
+          <p class="font-display-lg text-4xl text-primary mb-1" data-count="30" data-suffix="+">30+</p>
           <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Countries</p>
         </div>
         <div>
@@ -396,41 +443,236 @@
       <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
         <div class="flex items-center gap-4 md:gap-12">
           <div class="text-center min-w-[60px]">
-            <p class="font-label-caps text-[10px] text-on-surface-variant">MAY</p>
-            <p class="font-display-lg text-3xl text-primary">29</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">3</p>
           </div>
           <div>
-            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">TECHMASIVE</p>
-            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Elysium · Bangkok, Thailand 🇹🇭</p>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
           </div>
         </div>
-        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">TICKETS</a>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
       </div>
       <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
         <div class="flex items-center gap-4 md:gap-12">
           <div class="text-center min-w-[60px]">
-            <p class="font-label-caps text-[10px] text-on-surface-variant">MAY</p>
-            <p class="font-display-lg text-3xl text-primary">30</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">4</p>
           </div>
           <div>
-            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">LUNAR CLUB</p>
-            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Surat Thani, Thailand 🇹🇭</p>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
           </div>
         </div>
-        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">TICKETS</a>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
       </div>
       <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
         <div class="flex items-center gap-4 md:gap-12">
           <div class="text-center min-w-[60px]">
-            <p class="font-label-caps text-[10px] text-on-surface-variant">MAY</p>
-            <p class="font-display-lg text-3xl text-primary">31</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">5</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX + IYKYK @ ELYSIUM</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">7</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ELYSIUM + ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">10</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">11</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">12</p>
           </div>
           <div>
             <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ELYSIUM</p>
             <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
           </div>
         </div>
-        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">TICKETS</a>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">14</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ELYSIUM + ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">17</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">18</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">19</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ELYSIUM</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">21</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ELYSIUM + ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">24</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">25</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">26</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">77 CLUB</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Dannok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUN</p>
+            <p class="font-display-lg text-3xl text-primary">28</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">ELYSIUM + ONYX</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Bangkok, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUL</p>
+            <p class="font-display-lg text-3xl text-primary">3</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">MIXX66</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Ubon Ratchathani, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
+      </div>
+      <div class="flex items-center justify-between p-4 md:p-8 hover:bg-white/5 border-b border-white/5 transition-all group reveal">
+        <div class="flex items-center gap-4 md:gap-12">
+          <div class="text-center min-w-[60px]">
+            <p class="font-label-caps text-[10px] text-on-surface-variant">JUL</p>
+            <p class="font-display-lg text-3xl text-primary">21</p>
+          </div>
+          <div>
+            <p class="font-headline-md text-2xl group-hover:text-secondary transition-colors">TOPGUN</p>
+            <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Pattaya, Thailand 🇹🇭</p>
+          </div>
+        </div>
+        <a href="#booking" class="font-label-caps text-[10px] py-2 px-6 border border-white/20 group-hover:border-secondary group-hover:text-secondary transition-all flex-shrink-0">BOOK</a>
       </div>
     </div>
   </div>
@@ -522,7 +764,7 @@
 </footer>
 
 <!-- PERSISTENT MEDIA PLAYER -->
-<div class="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-2xl rounded-full border border-white/20 bg-surface-container-low/40 backdrop-blur-2xl shadow-[0_0_40px_rgba(221,183,255,0.15)] flex justify-around items-center h-14 md:h-16 px-4 md:px-8 z-50">
+<div class="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-2xl rounded-full border border-white/20 bg-surface-container-low/40 backdrop-blur-2xl shadow-[0_0_40px_rgba(221,183,255,0.15)] flex justify-around items-center h-14 md:h-16 px-4 md:px-8 z-50 media-glow">
   <div class="flex items-center gap-4 flex-1">
     <div class="w-10 h-10 flex-shrink-0 rounded overflow-hidden" style="background: linear-gradient(145deg, #1a0533, #200520)"></div>
     <div class="hidden sm:block">
@@ -609,6 +851,58 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── PARALLAX — HERO VIDEO ── */
+  const heroVid = document.querySelector('section video');
+  if (heroVid) {
+    const heroParallax = () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.5) {
+        heroVid.style.transform = `scale(1.08) translateY(${y * 0.22}px)`;
+      }
+    };
+    heroParallax();
+    window.addEventListener('scroll', heroParallax, { passive: true });
+  }
+
+  /* ── PARALLAX — QUOTE VIDEO ── */
+  const quoteSection = document.querySelector('section:has(blockquote)');
+  const quoteVid = quoteSection ? quoteSection.querySelector('video') : null;
+  if (quoteVid) {
+    window.addEventListener('scroll', () => {
+      const rect = quoteSection.getBoundingClientRect();
+      quoteVid.style.transform = `scale(1.1) translateY(${-rect.top * 0.14}px)`;
+    }, { passive: true });
+  }
+
+  /* ── NAV SCROLL TIGHTEN ── */
+  const navHeader = document.querySelector('header');
+  const navTick = () => navHeader.classList.toggle('nav-scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', navTick, { passive: true });
+
+  /* ── STAT COUNTER ── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    if (prefersReduced) { el.textContent = target + suffix; return; }
+    const duration = 1400;
+    let startTs = null;
+    function step(ts) {
+      if (!startTs) startTs = ts;
+      const p = Math.min((ts - startTs) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const co = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { countUp(el); co.disconnect(); }
+    }, { threshold: 0.6 });
+    co.observe(el);
+  });
 </script>
 </body>
 </html>
